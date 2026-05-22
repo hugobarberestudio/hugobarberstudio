@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería - Agenda tu Hora</title>
+    
+    <!-- CONEXIÓN A LAS FONTS (BEBAS NEUE Y PLAYFAIR CURSIVA) -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    
+    <!-- LIBRERÍA PARA LOS LOGOS REALES E ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: linear-gradient(rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.88)), url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            background-color: rgba(20, 20, 20, 0.96);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.85);
+            border: 1px solid #d4af37;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* LOGO MÁS GRANDE, RECTANGULAR Y CON BORDES DIFUMINADOS */
+        .logo-img {
+            width: 100%;
+            max-width: 280px; /* Más grande y con espacio para formato rectangular */
+            height: auto;
+            margin: 15px auto 15px auto;
+            display: block;
+            border-radius: 12px; /* Suaviza las esquinas */
+            /* Este efecto difumina los bordes exteriores para que no se note el parche de la imagen */
+            box-shadow: 0 0 20px 15px rgba(20, 20, 20, 0.96); 
+            border: none;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: block;
+            color: #d4af37;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+            letter-spacing: 0.5px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .social-btn i {
+            font-size: 1.2rem;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .services {
+            text-align: left;
+            margin-bottom: 30px;
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #2a2a2a;
+            scroll-behavior: smooth;
+        }
+
+        .services::-webkit-scrollbar {
+            width: 4px;
+        }
+        .services::-webkit-scrollbar-track {
+            background: #111;
+            border-radius: 10px;
+        }
+        .services::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 10px;
+        }
+
+        .service-item {
+            font-family: 'Bebas Neue', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 15px;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
+            font-size: 1.35rem;
+            color: #e0e0e0;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 8px;
+            margin-bottom: 2px;
+        }
+
+        .service-item:hover {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .service-item.selected {
+            background-color: #111 !important;
+            border: 1.5px solid #25D366; 
+            color: #25D366;
+            transform: scale(1.03) translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .service-item.selected .price {
+            color: #25D366 !important;
+            transform: scale(1.1);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            color: #d4af37 !important;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 25px 0 15px 0;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 1 / 1; 
+            border: 1px solid #333;
+            background-color: #252525;
+            animation: fadeInFotos 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .gallery-grid .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-grid .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-grid .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-grid .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-grid .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .gallery-item:last-child:nth-child(odd) {
+            grid-column: 1 / -1; 
+            margin: 0 auto;
+            width: 50%; 
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .horarios-card {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .horario-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+            font-size: 1rem;
+        }
+        .horario-row:last-child { border-bottom: none; }
+        .horario-row i { color: #d4af37; margin-right: 8px; }
+
+        /* RECUADROS FLEXIBLES */
+        .info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 480px) {
+            .info-grid {
+                flex-direction: row;
+            }
+            .info-pago-card, .info-banco-card {
+                flex: 1;
+                margin-bottom: 0 !important;
+            }
+        }
+
+        .info-pago-card, .info-banco-card {
+            background-color: #1a1a1a;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: inset 0 0 10px rgba(212,175,55,0.05);
+            box-sizing: border-box;
+        }
+
+        .info-banco-card {
+            border: 1px solid rgba(37, 211, 102, 0.4); 
+        }
+
+        .pago-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .pago-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .pago-item i {
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin-top: 3px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .info-banco-card .pago-item i {
+            color: #25D366; 
+        }
+
+        .pago-text h4 {
+            margin: 0 0 4px 0;
+            font-size: 1.05rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pago-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        .pago-text strong {
+            color: #fff;
+        }
+
+        /* CONTENEDOR DEL MAPA */
+        .map-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .map-container:hover {
+            transform: scale(1.02);
+            border-color: #d4af37;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 240px;
+            border: 0;
+            display: block;
+            filter: invert(90%) hue-rotate(180deg) saturate(150%);
+            -webkit-filter: invert(90%) hue-rotate(180deg) saturate(150%);
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.9);
+            color: #d4af37;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            border-top: 1px solid rgba(212,175,55,0.3);
+        }
+
+        .btn-agenda {
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #d4af37;
+            color: #121212;
+            padding: 16px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
+            animation: pulso-agenda 2s infinite ease-in-out;
+            transition: background-color 0.2s;
+        }
+
+        .btn-agenda:hover {
+            background-color: #f7d054;
+        }
+
+        @keyframes pulso-agenda {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+        }
+
+        @keyframes fadeInFotos {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #777;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- AQUÍ ESTÁ EL LOGO CON EL NUEVO ESTILO DE DIFUMINADO -->
+        <img src="logo.jpg" alt="Logo Barbería" class="logo-img">
+        <span class="subtitle">Cortes con Estilo, Color sin Límites, Cuidado Real</span>
+
+        <div class="social-links">
+            <a href="https://instagram.com/hugobarberestudio" target="_blank" class="social-btn btn-instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://wa.me/56946348388?text=Hola,%20tengo%20una%20duda%20con%20mi%20estudio" target="_blank" class="social-btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+
+        <div class="section-title">Elige tu Servicio (Envío Automático)</div>
+        <div class="services">
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Degradados o Corte Tradicional</span><span class="price">$8.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Lavado de Cabello + Degradado</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte & Perfilado de Barba</span><span class="price">$7.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Perfilado de Cejas</span><span class="price">$5.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte + Cejas</span><span class="price">$11.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte Pelo + Barba</span><span class="price">$13.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Perfilado de Cejas + Barba</span><span class="price">$9.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte de Pelo + Cejas + Barba</span><span class="price">$16.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte & Perfilado +Toallas Calientes + Mascara negra</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Tratamiento Facial Renovación Profunda con Ozono</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Exfoliación Facial</span><span class="price">$7.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Mascarilla Negra</span><span class="price">$5.000</span></div>
+            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Servicio Premium Completo</span><span class="price">$20.000</span></div>
+        </div>
+
+        <div class="section-title">Nuestros Trabajos</div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="corte1.jpg" alt="Corte 1">
+            </div>
+            <div class="gallery-item">
+                <img src="corte2.jpg" alt="Corte 2">
+            </div>
+            <div class="gallery-item">
+                <img src="corte3.jpg" alt="Corte 3">
+            </div>
+            <div class="gallery-item">
+                <img src="corte4.jpg" alt="Corte 4">
+            </div>
+            <div class="gallery-item">
+                <img src="corte5.jpg" alt="Corte 5">
+            </div>
+        </div>
+
+        <div class="section-title">Horarios de Atención</div>
+        <div class="horarios-card">
+            <div class="horario-row">
+                <span><i class="fa-solid fa-calendar-days"></i> Lunes a Domingo</span>
+                <span style="color: #d4af37; font-weight: bold;">Solo por Agenda</span>
+            </div>
+            <div class="horario-row">
+                <span><i class="fa-solid fa-clock"></i> Disponibilidad Continua</span>
+                <span>Consultar Bloques</span>
+            </div>
+        </div>
+
+        <div class="section-title">Condiciones y Pago</div>
+        <div class="info-grid">
+            
+            <div class="info-pago-card">
+                <div class="pago-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div class="pago-text">
+                        <h4>Garantía de Agenda</h4>
+                        <p>Para asegurar tu bloque, debes transferir un abono de <strong>$3.000</strong>.</p>
+                    </div>
+                </div>
+                <div class="pago-item">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <div class="pago-text">
+                        <h4>En la Barbería</h4>
+                        <p>Aceptamos pagos en <strong>Efectivo</strong>, <strong>Tarjetas</strong> o <strong>Transferencia</strong> al terminar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recuerda cambiar estos datos por los tuyos reales -->
+            <div class="info-banco-card">
+                <div class="pago-item">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <div class="pago-text">
+                        <h4>Datos de Transferencia</h4>
+                        <p><strong>Banco:</strong> Banco del Estado (Cuenta RUT)</p>
+                        <p><strong>Tipo:</strong> Cuenta Vista / Ahorro</p>
+                        <p><strong>Número:</strong> 12345678 (Sin guión)</p>
+                        <p><strong>Nombre:</strong> Hugo Barber</p>
+                        <p><strong>RUT:</strong> 12.345.678-9</p>
+                        <p><strong>Correo:</strong> tu-correo@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section-title">Ubicación</div>
+        <div class="map-container" onclick="abrirUbicacionGPS()">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3195.9687989390235!2d-72.3396555!3d-37.4851212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966a3983da3e1b1b%3A0x7d0a27cb46f043ba!2sPasaje%20Profesor%20Rodolfo%20Rebolledo%201117%2C%20Los%20%C3%81ngeles%2C%20B%C3%ADob%C3%ADo%2C%20Chile!5e0!3m2!1ses!2scl!4v1716380000000!5m2!1ses!2scl" allowfullscreen="" loading="lazy"></iframe>
+            <div class="map-overlay">
+                <i class="fa-solid fa-map-location-dot"></i> Pasaje Profesor Rodolfo Rebolledo 1117 <br>
+                <span style="font-size:0.8rem; font-weight:normal; color:#aaa;">(Toca aquí para iniciar GPS en el celular)</span>
+            </div>
+        </div>
+
+        <button onclick="enviarAgendaGeneral()" class="btn-agenda">
+            📅 Agenda o Consulta General
+        </button>
+
+        <footer>
+            Hugo Barber Estudio <br>
+            Pasaje Profesor Rodolfo Rebolledo 1117<br>
+            Los Ángeles, Biobío, Chile
+        </footer>
+    </div>
+
+    <script>
+        function abrirUbicacionGPS() {
+            window.open("https://www.google.com/maps/dir/?api=1&destination=Pasaje+Profesor+Rodolfo+Rebolledo+1117,+Los+Angeles,+Biobio,+Chile", "_blank");
+        }
+
+        function enviarServicioDirecto(elemento) {
+            const yaSeleccionado = document.querySelector('.service-item.selected');
+            if (yaSeleccionado) {
+                yaSeleccionado.classList.remove('selected');
+            }
+            
+            elemento.classList.add('selected');
+            
+            let servicio = elemento.querySelector('span:first-child').innerText;
+            let precio = elemento.querySelector('.price').innerText;
+            
+            let mensaje = "¡Hola! Vi tu página y quiero asegurar una hora para: " + servicio + " (" + precio + "). Quedo atento para que me confirmes los bloques disponibles y transferir los $3.000 de la reserva.";
+            let mensajeCodificado = encodeURIComponent(mensaje);
+            
+            setTimeout(function() {
+                window.open("https://wa.me/56946348388?text=" + mensajeCodificado, "_blank");
+            }, 400);
+        }
+
+        function enviarAgendaGeneral() {
+            let mensaje = "¡Hola! Quiero consultar disponibilidad de horas en la barbería y los datos para realizar el abono de reserva.";
+            let mensajeCodificado = encodeURIComponent(mensaje);
+            window.open("https://wa.me/56946348388?text=" + mensajeCodificado, "_blank");
+        }
+    </script>
+
+</body>
+</html>
