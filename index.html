@@ -38,15 +38,14 @@
             box-sizing: border-box;
         }
 
-        /* LOGO MÁS GRANDE, RECTANGULAR Y CON BORDES DIFUMINADOS */
+        /* LOGO CON BORDES DIFUMINADOS */
         .logo-img {
             width: 100%;
-            max-width: 280px; /* Más grande y con espacio para formato rectangular */
+            max-width: 280px;
             height: auto;
             margin: 15px auto 15px auto;
             display: block;
-            border-radius: 12px; /* Suaviza las esquinas */
-            /* Este efecto difumina los bordes exteriores para que no se note el parche de la imagen */
+            border-radius: 12px;
             box-shadow: 0 0 20px 15px rgba(20, 20, 20, 0.96); 
             border: none;
         }
@@ -98,6 +97,27 @@
 
         .social-btn:hover {
             transform: scale(1.05);
+        }
+
+        /* ALERTA LLAMATIVA PARA EL ABONO */
+        .alerta-abono {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid #d4af37;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .alerta-abono p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            line-height: 1.4;
+        }
+
+        .alerta-abono strong {
+            color: #d4af37;
         }
 
         .services {
@@ -153,21 +173,12 @@
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
         }
 
-        .service-item.selected .price {
-            transform: scale(1.1);
-        }
-
-        .service-item:last-child {
-            border-bottom: none;
-        }
-
         .price {
             color: #d4af37 !important;
             font-weight: bold;
             font-size: 1.3rem;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
             letter-spacing: 0.5px;
-            transition: transform 0.3s ease;
         }
 
         .section-title {
@@ -221,6 +232,48 @@
             transform: scale(1.08);
         }
 
+        /* DISEÑO DE RESEÑAS / TESTIMONIOS */
+        .reviews-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .review-card {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .review-user {
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .review-stars {
+            color: #d4af37;
+            font-size: 0.85rem;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: #b3b3b3;
+            margin: 0;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
         .horarios-card {
             background-color: #1a1a1a;
             border: 1px solid #2a2a2a;
@@ -241,7 +294,63 @@
         .horario-row:last-child { border-bottom: none; }
         .horario-row i { color: #d4af37; margin-right: 8px; }
 
-        /* RECUADROS FLEXIBLES */
+        /* PREGUNTAS FRECUENTES (FAQ) ACCORDION */
+        .faq-container {
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .faq-item {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            background-color: #151515;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px;
+            max-height: 200px;
+            border-top: 1px solid #252525;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+            color: #d4af37;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* RECUADROS FLEXIBLES DE PAGO */
         .info-grid {
             display: flex;
             flex-direction: column;
@@ -250,13 +359,8 @@
         }
 
         @media (min-width: 480px) {
-            .info-grid {
-                flex-direction: row;
-            }
-            .info-pago-card, .info-banco-card {
-                flex: 1;
-                margin-bottom: 0 !important;
-            }
+            .info-grid { flex-direction: row; }
+            .info-pago-card, .info-banco-card { flex: 1; margin-bottom: 0 !important; }
         }
 
         .info-pago-card, .info-banco-card {
@@ -265,285 +369,13 @@
             border-radius: 10px;
             padding: 20px;
             text-align: left;
-            box-shadow: inset 0 0 10px rgba(212,175,55,0.05);
             box-sizing: border-box;
         }
 
-        .info-banco-card {
-            border: 1px solid rgba(37, 211, 102, 0.4); 
-        }
+        .info-banco-card { border: 1px solid rgba(37, 211, 102, 0.4); }
 
-        .pago-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .pago-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .pago-item i {
-            color: #d4af37;
-            font-size: 1.2rem;
-            margin-top: 3px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .info-banco-card .pago-item i {
-            color: #25D366; 
-        }
-
-        .pago-text h4 {
-            margin: 0 0 4px 0;
-            font-size: 1.05rem;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .pago-text p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #aaa;
-            line-height: 1.4;
-        }
-
-        .pago-text strong {
-            color: #fff;
-        }
-
-        /* CONTENEDOR DEL MAPA */
-        .map-container {
-            width: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #333;
-            margin-bottom: 35px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        
-        .map-container:hover {
-            transform: scale(1.02);
-            border-color: #d4af37;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 240px;
-            border: 0;
-            display: block;
-            filter: invert(90%) hue-rotate(180deg) saturate(150%);
-            -webkit-filter: invert(90%) hue-rotate(180deg) saturate(150%);
-        }
-
-        .map-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(15, 15, 15, 0.9);
-            color: #d4af37;
-            padding: 10px 0;
-            font-size: 0.95rem;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            border-top: 1px solid rgba(212,175,55,0.3);
-        }
-
-        .btn-agenda {
-            display: inline-block;
-            width: 100%;
-            box-sizing: border-box;
-            background-color: #d4af37;
-            color: #121212;
-            padding: 16px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            border: none;
-            animation: pulso-agenda 2s infinite ease-in-out;
-            transition: background-color 0.2s;
-        }
-
-        .btn-agenda:hover {
-            background-color: #f7d054;
-        }
-
-        @keyframes pulso-agenda {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.7); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
-        }
-
-        @keyframes fadeInFotos {
-            0% { opacity: 0; transform: translateY(15px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        footer {
-            margin-top: 25px;
-            font-size: 0.85rem;
-            color: #777;
-            line-height: 1.5;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <img src="logo.jpg" alt="Logo Barbería" class="logo-img">
-        <span class="subtitle">Cortes con Estilo, Color sin Límites, Cuidado Real</span>
-
-        <div class="social-links">
-            <a href="https://instagram.com/hugobarberestudio" target="_blank" class="social-btn btn-instagram">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-            <a href="https://wa.me/56946348388?text=Hola,%20tengo%20una%20duda%20con%20el%20estudio" target="_blank" class="social-btn btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-        </div>
-
-        <div class="section-title">Elige tu Servicio (Agenda en Línea)</div>
-        <div class="services">
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Degradados o Corte Tradicional</span><span class="price">$8.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Lavado de Cabello + Degradado</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado de Barba</span><span class="price">$7.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas</span><span class="price">$5.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte + Cejas</span><span class="price">$11.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte Pelo + Barba</span><span class="price">$13.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas + Barba</span><span class="price">$9.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte de Pelo + Cejas + Barba</span><span class="price">$16.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado +Toallas Calientes + Mascara negra</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Tratamiento Facial Renovación Profunda con Ozono</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Exfoliación Facial</span><span class="price">$7.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Mascarilla Negra</span><span class="price">$5.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Servicio Premium Completo</span><span class="price">$20.000</span></div>
-        </div>
-
-        <div class="section-title">Nuestros Trabajos</div>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="corte1.jpg" alt="Corte 1">
-            </div>
-            <div class="gallery-item">
-                <img src="corte2.jpg" alt="Corte 2">
-            </div>
-            <div class="gallery-item">
-                <img src="corte3.jpg" alt="Corte 3">
-            </div>
-            <div class="gallery-item">
-                <img src="corte4.jpg" alt="Corte 4">
-            </div>
-            <div class="gallery-item">
-                <img src="corte5.jpg" alt="Corte 5">
-            </div>
-        </div>
-
-        <div class="section-title">Horarios de Atención</div>
-        <div class="horarios-card">
-            <div class="horario-row">
-                <span><i class="fa-solid fa-calendar-days"></i> Lunes a Domingo</span>
-                <span style="color: #d4af37; font-weight: bold;">Solo por Agenda</span>
-            </div>
-            <div class="horario-row">
-                <span><i class="fa-solid fa-clock"></i> Disponibilidad Continua</span>
-                <span>Ver Bloques en Calendario</span>
-            </div>
-        </div>
-
-        <div class="section-title">Condiciones y Pago</div>
-        <div class="info-grid">
-            
-            <div class="info-pago-card">
-                <div class="pago-item">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <div class="pago-text">
-                        <h4>Garantía de Agenda</h4>
-                        <p>Para asegurar tu bloque, debes transferir un abono de <strong>$3.000</strong>.</p>
-                    </div>
-                </div>
-                <div class="pago-item">
-                    <i class="fa-solid fa-credit-card"></i>
-                    <div class="pago-text">
-                        <h4>En la Barbería</h4>
-                        <p>Aceptamos pagos en <strong>Efectivo</strong>, <strong>Tarjetas</strong> o <strong>Transferencia</strong> al terminar.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-banco-card">
-                <div class="pago-item">
-                    <i class="fa-solid fa-building-columns"></i>
-                    <div class="pago-text">
-                        <h4>Datos de Transferencia</h4>
-                        <p><strong>Banco:</strong> BCI MACH</p>
-                        <p><strong>Tipo:</strong> Cuenta Corriente</p>
-                        <p><strong>Número:</strong> 777916718486</p>
-                        <p><strong>Nombre:</strong> Romina toro</p>
-                        <p><strong>RUT:</strong> 16.718.486-3</p>
-                        <p><strong>Comprobante:</strong> Se envía al WhatsApp</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="section-title">Ubicación</div>
-        <div class="map-container" onclick="abrirUbicacionGPS()">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3195.9687989390235!2d-72.3396555!3d-37.4851212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966a3983da3e1b1b%3A0x7d0a27cb46f043ba!2sPasaje%20Profesor%20Rodolfo%20Rebolledo%201117%2C%20Los%20%C3%81ngeles%2C%20B%C3%ADob%C3%ADo%2C%20Chile!5e0!3m2!1ses!2scl!4v1716380000000!5m2!1ses!2scl" allowfullscreen="" loading="lazy"></iframe>
-            <div class="map-overlay">
-                <i class="fa-solid fa-map-location-dot"></i> Pasaje Profesor Rodolfo Rebolledo 1117 <br>
-                <span style="font-size:0.8rem; font-weight:normal; color:#aaa;">(Toca aquí para iniciar GPS en el celular)</span>
-            </div>
-        </div>
-
-        <button onclick="enviarMensajeDudas()" class="btn-agenda">
-            💬 Dudas o Consultas vía WhatsApp
-        </button>
-
-        <footer>
-            Hugo Barber Estudio <br>
-            Pasaje Profesor Rodolfo Rebolledo 1117<br>
-            Los Ángeles, Biobío, Chile
-        </footer>
-    </div>
-
-    <script>
-        function abrirUbicacionGPS() {
-            window.open("https://www.google.com/maps/dir/?api=1&destination=Pasaje+Profesor+Rodolfo+Rebolledo+1117,+Los+Angeles,+Biobio,+Chile", "_blank");
-        }
-
-        // Enlace corregido con guion medio para evitar el error 404
-        function abrirCalendly(elemento) {
-            const yaSeleccionado = document.querySelector('.service-item.selected');
-            if (yaSeleccionado) {
-                yaSeleccionado.classList.remove('selected');
-            }
-            
-            elemento.classList.add('selected');
-            
-            setTimeout(function() {
-                window.open("https://calendly.com/hugobarberstudio-cl", "_blank");
-            }, 300);
-        }
-
-        // Función para el botón de dudas
-        function enviarMensajeDudas() {
-            let mensaje = "¡Hola! Estaba viendo la página de la barbería y tengo una duda/consulta.";
-            let mensajeCodificado = encodeURIComponent(mensaje);
-            window.open("https://wa.me/56946348388?text=" + mensajeCodificado, "_blank");
-        }
-    </script>
-
-</body>
-</html>
+        .pago-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
+        .pago-item:last-child { margin-bottom: 0; }
+        .pago-item i { color: #d4af37; font-size: 1.2rem; margin-top: 3px; width: 20px; text-align: center; }
+        .info-banco-card .pago-item i { color: #25D366; }
+        .pago-text h4 { margin: 0 0 4px 0; font-size: 1.05rem; color: #fff
