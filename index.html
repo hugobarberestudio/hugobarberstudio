@@ -415,19 +415,19 @@
 
         <div class="section-title">Elige tu Servicio (Agenda en Línea)</div>
         <div class="services">
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Degradados o Corte Tradicional</span><span class="price">$8.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Lavado de Cabello + Degradado</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado de Barba</span><span class="price">$7.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas</span><span class="price">$5.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte + Cejas</span><span class="price">$11.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte Pelo + Barba</span><span class="price">$13.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas + Barba</span><span class="price">$9.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte de Pelo + Cejas + Barba</span><span class="price">$16.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado +Toallas Calientes + Mascara negra</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Tratamiento Facial Renovación Profunda con Ozono</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Exfoliación Facial</span><span class="price">$7.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Mascarilla Negra</span><span class="price">$5.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Servicio Premium Completo</span><span class="price">$20.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Degradados o Corte Tradicional 45 min. Aprox</span><span class="price">$8.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Lavado de Cabello + Degradado 1Hrs. Aprox.</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado de Barba 1:30 Hrs Aprox.</span><span class="price">$7.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas 30 min Aprox.</span><span class="price">$5.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte + Cejas 1 Hrs.Aprox.</span><span class="price">$11.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte Pelo + Barba 1:30 Hrs Aprox.</span><span class="price">$13.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas + Barba 45 min. Aprx.</span><span class="price">$9.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte de Pelo + Cejas + Barba 2 Hrs. Aprox</span><span class="price">$16.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado +Toallas Calientes + Mascara negra 1:30 Hrs.Aprox</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Tratamiento Facial Renovación Profunda con Ozono 1hrs. Aprox.</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Exfoliación Facial & acites & cremas 1 Hrs.Aprox</span><span class="price">$7.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Mascarilla Negra 20Min.Aprox.</span><span class="price">$5.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Servicio Premium Completo 2 Hrs. Aporx</span><span class="price">$20.000</span></div>
         </div>
 
         <div class="section-title">Nuestros Trabajos</div>
@@ -491,7 +491,7 @@
                         <p><strong>Número:</strong> 777916718486</p>
                         <p><strong>Nombre:</strong> Romina toro</p>
                         <p><strong>RUT:</strong> 16.718.486-3</p>
-                        <p><strong>Comprobante:</strong> Se envía al WhatsApp</p>
+                        <p><strong>Comprobante:</strong> Se envía al WhatsAPP</p>
                     </div>
                 </div>
             </div>
@@ -507,8 +507,8 @@
             </div>
         </div>
 
-        <button onclick="abrirCalendlyGeneral()" class="btn-agenda">
-            📅 Ver Calendario y Reservar Hora
+        <button onclick="enviarMensajeDudas()" class="btn-agenda">
+            💬 Dudas o Consultas vía WhatsApp
         </button>
 
         <footer>
@@ -523,7 +523,7 @@
             window.open("https://www.google.com/maps/dir/?api=1&destination=Pasaje+Profesor+Rodolfo+Rebolledo+1117,+Los+Angeles,+Biobio,+Chile", "_blank");
         }
 
-        // Esta función se activa al hacer clic en cualquier servicio de la lista
+        // Al hacer clic en los servicios se abre tu Calendly automático
         function abrirCalendly(elemento) {
             const yaSeleccionado = document.querySelector('.service-item.selected');
             if (yaSeleccionado) {
@@ -532,15 +532,16 @@
             
             elemento.classList.add('selected');
             
-            // Espera un momento para el efecto visual y redirige a tu Calendly
             setTimeout(function() {
                 window.open("https://calendly.com/hugobarberstudio/30min", "_blank");
             }, 300);
         }
 
-        // Esta función se activa con el botón grande de abajo
-        function abrirCalendlyGeneral() {
-            window.open("https://calendly.com/hugobarberstudio/30min", "_blank");
+        // Nueva función para el botón de dudas
+        function enviarMensajeDudas() {
+            let mensaje = "¡Hola! Estaba viendo la página de la barbería y tengo una duda/consulta.";
+            let mensajeCodificado = encodeURIComponent(mensaje);
+            window.open("https://wa.me/56946348388?text=" + mensajeCodificado, "_blank");
         }
     </script>
 
