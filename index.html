@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbería - Agenda tu Hora</title>
     
-    <!-- CONEXIÓN A LAS FONTS (BEBAS NEUE Y PLAYFAIR CURSIVA) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
     
-    <!-- LIBRERÍA PARA LOS LOGOS REALES E ICONOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
@@ -149,14 +147,13 @@
 
         .service-item.selected {
             background-color: #111 !important;
-            border: 1.5px solid #25D366; 
-            color: #25D366;
+            border: 1.5px solid #d4af37; 
+            color: #d4af37;
             transform: scale(1.03) translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
         }
 
         .service-item.selected .price {
-            color: #25D366 !important;
             transform: scale(1.1);
         }
 
@@ -404,7 +401,6 @@
 <body>
 
     <div class="container">
-        <!-- AQUÍ ESTÁ EL LOGO CON EL NUEVO ESTILO DE DIFUMINADO -->
         <img src="logo.jpg" alt="Logo Barbería" class="logo-img">
         <span class="subtitle">Cortes con Estilo, Color sin Límites, Cuidado Real</span>
 
@@ -412,26 +408,26 @@
             <a href="https://instagram.com/hugobarberestudio" target="_blank" class="social-btn btn-instagram">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
-            <a href="https://wa.me/56946348388?text=Hola,%20tengo%20una%20duda%20con%20mi%20estudio" target="_blank" class="social-btn btn-whatsapp">
+            <a href="https://wa.me/56946348388?text=Hola,%20tengo%20una%20duda%20con%20el%20estudio" target="_blank" class="social-btn btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
         </div>
 
-        <div class="section-title">Elige tu Servicio (Envío Automático)</div>
+        <div class="section-title">Elige tu Servicio (Agenda en Línea)</div>
         <div class="services">
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Degradados o Corte Tradicional</span><span class="price">$8.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Lavado de Cabello + Degradado</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte & Perfilado de Barba</span><span class="price">$7.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Perfilado de Cejas</span><span class="price">$5.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte + Cejas</span><span class="price">$11.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte Pelo + Barba</span><span class="price">$13.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Perfilado de Cejas + Barba</span><span class="price">$9.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte de Pelo + Cejas + Barba</span><span class="price">$16.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Corte & Perfilado +Toallas Calientes + Mascara negra</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Tratamiento Facial Renovación Profunda con Ozono</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Exfoliación Facial</span><span class="price">$7.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Mascarilla Negra</span><span class="price">$5.000</span></div>
-            <div class="service-item" onclick="enviarServicioDirecto(this)"><span>Servicio Premium Completo</span><span class="price">$20.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Degradados o Corte Tradicional</span><span class="price">$8.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Lavado de Cabello + Degradado</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado de Barba</span><span class="price">$7.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas</span><span class="price">$5.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte + Cejas</span><span class="price">$11.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte Pelo + Barba</span><span class="price">$13.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas + Barba</span><span class="price">$9.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte de Pelo + Cejas + Barba</span><span class="price">$16.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado +Toallas Calientes + Mascara negra</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Tratamiento Facial Renovación Profunda con Ozono</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Exfoliación Facial</span><span class="price">$7.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Mascarilla Negra</span><span class="price">$5.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Servicio Premium Completo</span><span class="price">$20.000</span></div>
         </div>
 
         <div class="section-title">Nuestros Trabajos</div>
@@ -461,7 +457,7 @@
             </div>
             <div class="horario-row">
                 <span><i class="fa-solid fa-clock"></i> Disponibilidad Continua</span>
-                <span>Consultar Bloques</span>
+                <span>Ver Bloques en Calendario</span>
             </div>
         </div>
 
@@ -485,7 +481,6 @@
                 </div>
             </div>
 
-            <!-- Recuerda cambiar estos datos por los tuyos reales -->
             <div class="info-banco-card">
                 <div class="pago-item">
                     <i class="fa-solid fa-building-columns"></i>
@@ -496,7 +491,7 @@
                         <p><strong>Número:</strong> 777916718486</p>
                         <p><strong>Nombre:</strong> Romina toro</p>
                         <p><strong>RUT:</strong> 16.718.486-3</p>
-                        <p><strong>Comprovante:</strong>Se envia al WhatsAPp</p>
+                        <p><strong>Comprobante:</strong> Se envía al WhatsApp</p>
                     </div>
                 </div>
             </div>
@@ -512,8 +507,8 @@
             </div>
         </div>
 
-        <button onclick="enviarAgendaGeneral()" class="btn-agenda">
-            📅 Agenda o Consulta General
+        <button onclick="abrirCalendlyGeneral()" class="btn-agenda">
+            📅 Ver Calendario y Reservar Hora
         </button>
 
         <footer>
@@ -528,7 +523,8 @@
             window.open("https://www.google.com/maps/dir/?api=1&destination=Pasaje+Profesor+Rodolfo+Rebolledo+1117,+Los+Angeles,+Biobio,+Chile", "_blank");
         }
 
-        function enviarServicioDirecto(elemento) {
+        // Esta función se activa al hacer clic en cualquier servicio de la lista
+        function abrirCalendly(elemento) {
             const yaSeleccionado = document.querySelector('.service-item.selected');
             if (yaSeleccionado) {
                 yaSeleccionado.classList.remove('selected');
@@ -536,21 +532,15 @@
             
             elemento.classList.add('selected');
             
-            let servicio = elemento.querySelector('span:first-child').innerText;
-            let precio = elemento.querySelector('.price').innerText;
-            
-            let mensaje = "¡Hola! Vi tu página y quiero asegurar una hora para: " + servicio + " (" + precio + "). Quedo atento para que me confirmes los bloques disponibles y transferir los $3.000 de la reserva.";
-            let mensajeCodificado = encodeURIComponent(mensaje);
-            
+            // Espera un momento para el efecto visual y redirige a tu Calendly
             setTimeout(function() {
-                window.open("https://wa.me/56946348388?text=" + mensajeCodificado, "_blank");
-            }, 400);
+                window.open("https://calendly.com/hugobarberstudio/30min", "_blank");
+            }, 300);
         }
 
-        function enviarAgendaGeneral() {
-            let mensaje = "¡Hola! Quiero consultar disponibilidad de horas en la barbería y los datos para realizar el abono de reserva.";
-            let mensajeCodificado = encodeURIComponent(mensaje);
-            window.open("https://wa.me/56946348388?text=" + mensajeCodificado, "_blank");
+        // Esta función se activa con el botón grande de abajo
+        function abrirCalendlyGeneral() {
+            window.open("https://calendly.com/hugobarberstudio/30min", "_blank");
         }
     </script>
 
