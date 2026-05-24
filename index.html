@@ -523,7 +523,7 @@
             window.open("https://www.google.com/maps/dir/?api=1&destination=Pasaje+Profesor+Rodolfo+Rebolledo+1117,+Los+Angeles,+Biobio,+Chile", "_blank");
         }
 
-        // Ahora apunta al nuevo enlace general /cl de tu Calendly
+        // Enlace corregido con guion medio para evitar el error 404
         function abrirCalendly(elemento) {
             const yaSeleccionado = document.querySelector('.service-item.selected');
             if (yaSeleccionado) {
@@ -533,7 +533,7 @@
             elemento.classList.add('selected');
             
             setTimeout(function() {
-                window.open("https://calendly.com/hugobarberstudio/cl", "_blank");
+                window.open("https://calendly.com/hugobarberstudio-cl", "_blank");
             }, 300);
         }
 
