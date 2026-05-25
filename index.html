@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbería - Agenda tu Hora</title>
     
+    <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
     
+    <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
@@ -341,7 +343,7 @@
             <div class="service-item" onclick="abrirCalendly(this)"><span>Corte Pelo + Barba</span><span class="price">$13.000</span></div>
             <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas + Barba</span><span class="price">$9.000</span></div>
             <div class="service-item" onclick="abrirCalendly(this)"><span>Corte de Pelo + Cejas + Barba</span><span class="price">$16.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado +Toallas Calientes + Mascara negra</span><span class="price">$10.000</span></div>
+            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado + Toallas Calientes + Máscara negra</span><span class="price">$10.000</span></div>
             <div class="service-item" onclick="abrirCalendly(this)"><span>Tratamiento Facial Renovación Profunda con Ozono</span><span class="price">$10.000</span></div>
             <div class="service-item" onclick="abrirCalendly(this)"><span>Exfoliación Facial</span><span class="price">$7.000</span></div>
             <div class="service-item" onclick="abrirCalendly(this)"><span>Mascarilla Negra</span><span class="price">$5.000</span></div>
@@ -415,10 +417,10 @@
                     <div class="pago-text">
                         <h4>Datos de Transferencia</h4>
                         <p><strong>Banco:</strong> BCI MACH</p>
-                        <p><strong>Número Cuenta (Corriente):</strong>777916718486</p>
+                        <p><strong>Número Cuenta (Corriente):</strong> 777916718486</p>
                         <p><strong>Nombre:</strong> Romina Toro</p>
                         <p><strong>RUT:</strong> 16.718.486-3</p>
-                        <p><strong>Comprobante:</strong>Se Envia a la Aplicacion WhathsAPP</p>
+                        <p><strong>Comprobante:</strong> Se envía a la aplicación WhatsApp</p>
                     </div>
                 </div>
             </div>
@@ -426,7 +428,7 @@
 
         <div class="section-title">Ubicación</div>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.351280800045!2d-72.3392348!3d-37.4760591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669ca79f0a82b9f%3A0x7c88f2f8b078d151!2sProf.%20Rodolfo%20Rebolledo%201117%2C%20Los%20Angeles%2C%20Los%20%C3%81ngeles%2C%20B%C3%ADo%20B%C3%ADo!5e0!3m2!1ses-419!2scl!4v1715600000000!5m2!1ses-419!2scl" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.351280800045!2d-72.3392348!3d-37.4760591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669ca79f0a82b9f%3A0x7c88f2f8b078d151!2sProf.%20Rodolfo%20Rebolledo%201117%2C%20Los%20angeles%2C%20Los%20%C3%81ngeles%2C%20B%C3%ADo%20B%C3%ADo!5e0!3m2!1ses-419!2scl!4v1715600000000!5m2!1ses-419!2scl" allowfullscreen="" loading="lazy"></iframe>
             <div class="map-overlay">
                 <i class="fa-solid fa-map-location-dot"></i> Pasaje Profesor Rodolfo Rebolledo 1117
             </div>
@@ -465,7 +467,12 @@
             }
             elemento.classList.add('selected');
             
+            // Obtiene el nombre del servicio seleccionado de forma automática
+            const nombreServicio = elemento.querySelector('span').innerText;
+            console.log("Servicio seleccionado: " + nombreServicio);
+            
             setTimeout(function() {
+                // Redirección directa a tu Calendly general
                 window.open("https://calendly.com/hugobarberstudio", "_blank");
             }, 300);
         }
