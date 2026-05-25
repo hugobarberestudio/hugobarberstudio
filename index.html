@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbería - Agenda tu Hora</title>
     
+    <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
     
+    <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
@@ -42,7 +44,7 @@
             width: 100%;
             max-width: 280px;
             height: auto;
-            margin: 15px auto 15px auto;
+            margin: 15px auto;
             display: block;
             border-radius: 12px;
             box-shadow: 0 0 20px 15px rgba(20, 20, 20, 0.96); 
@@ -120,7 +122,7 @@
             background: #1a1a1a;
             padding: 15px;
             border-radius: 10px;
-            max-height: 400px;
+            max-height: 300px;
             overflow-y: auto;
             border: 1px solid #2a2a2a;
             scroll-behavior: smooth;
@@ -258,224 +260,80 @@
         .faq-container { text-align: left; margin-bottom: 35px; }
         .faq-item { background-color: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
         .faq-question { padding: 15px; font-weight: bold; font-size: 0.95rem; color: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #aaa; font-size: 0.9rem; background-color: #151515; }
+        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: all 0.3s ease-out; color: #aaa; font-size: 0.9rem; background-color: #151515; }
         .faq-item.active .faq-answer { padding: 15px; max-height: 200px; border-top: 1px solid #252525; }
         .faq-question i { color: #d4af37; transition: transform 0.3s; }
         .faq-item.active .faq-question i { transform: rotate(180deg); }
 
-        .info-grid { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
-        @media (min-width: 480px) { .info-grid { flex-direction: row; } .info-pago-card, .info-banco-card { flex: 1; } }
+        .info-grid { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            margin-bottom: 30px; 
+        }
 
-        .info-pago-card, .info-banco-card { background-color: #1a1a1a; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 10px; padding: 20px; text-align: left; box-sizing: border-box; }
-        .info-banco-card { border: 1px solid rgba(37, 211, 102, 0.4); }
-        .pago-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
-        .pago-item:last-child { margin-bottom: 0; }
-        .pago-item i { color: #d4af37; font-size: 1.2rem; width: 20px; text-align: center; }
-        .info-banco-card .pago-item i { color: #25D366; }
-        .pago-text h4 { margin: 0 0 4px 0; color: #fff; text-transform: uppercase; }
-        .pago-text p { margin: 0; font-size: 0.9rem; color: #aaa; }
-
-        .map-container { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #333; margin-bottom: 15px; position: relative; }
-        .map-container iframe { width: 100%; height: 220px; border: 0; display: block; filter: invert(90%) hue-rotate(180deg) saturate(150%); }
-        .map-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(15, 15, 15, 0.9); color: #d4af37; padding: 10px 0; font-size: 0.95rem; font-weight: bold; border-top: 1px solid rgba(212,175,55,0.3); }
-
-        .gps-buttons { display: flex; gap: 10px; margin-bottom: 35px; width: 100%; }
-        .gps-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.9rem; color: #fff; transition: transform 0.2s; }
-        .btn-gmaps { background-color: #4285F4; }
-        .btn-waze { background-color: #00C4FF; color: #111; }
-        .gps-btn:hover { transform: scale(1.03); }
-
-        .btn-agenda {
-            display: inline-block;
-            width: 100%;
-            box-sizing: border-box;
-            background-color: #d4af37;
-            color: #121212;
-            padding: 16px;
-            text-decoration: none;
-            font-size: 1.2rem;
+        /* Formulario de Reserva */
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            color: #d4af37;
             font-weight: bold;
-            border-radius: 8px;
-            text-transform: uppercase;
-            cursor: pointer;
+        }
+        .form-control {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            padding: 12px;
+            color: #fff;
+            font-size: 1rem;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        .btn-submit {
+            background-color: #d4af37;
+            color: #101010;
             border: none;
-            animation: pulso-agenda 2s infinite ease-in-out;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #bfa030;
         }
 
-        @keyframes pulso-agenda {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.7); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
+        /* Consultas de Medios */
+        @media (min-width: 480px) { 
+            .info-grid {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .info-grid .form-group {
+                flex: 1;
+            }
         }
-
-        footer { margin-top: 25px; font-size: 0.85rem; color: #777; line-height: 1.5; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="logo.jpg" alt="Logo Barbería" class="logo-img">
-        <span class="subtitle">Cortes con Estilo, Color sin Límites, Cuidado Real</span>
-
-        <div class="social-links">
-            <a href="https://instagram.com/hugobarberestudio" target="_blank" class="social-btn btn-instagram">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-            <a href="https://wa.me/56946348388?text=Hola,%20tengo%20una%20duda%20con%20el%20estudio" target="_blank" class="social-btn btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-        </div>
-
-        <div class="section-title">Elige tu Servicio (Agenda en Línea)</div>
-        
-        <div class="alerta-abono">
-            <p>⚠️ <strong>Nota importante:</strong> Para asegurar tu bloque de atención, recuerda realizar el abono de <strong>$3.000</strong> dentro de los siguientes 15 minutos.</p>
-        </div>
-
-        <div class="services">
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Degradados o Corte Tradicional</span><span class="price">$8.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Lavado de Cabello + Degradado</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado de Barba</span><span class="price">$7.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas</span><span class="price">$5.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte + Cejas</span><span class="price">$11.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte Pelo + Barba</span><span class="price">$13.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Perfilado de Cejas + Barba</span><span class="price">$9.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte de Pelo + Cejas + Barba</span><span class="price">$16.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Corte & Perfilado +Toallas Calientes + Mascara negra</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Tratamiento Facial Renovación Profunda con Ozono</span><span class="price">$10.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Exfoliación Facial</span><span class="price">$7.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Mascarilla Negra</span><span class="price">$5.000</span></div>
-            <div class="service-item" onclick="abrirCalendly(this)"><span>Servicio Premium Completo</span><span class="price">$20.000</span></div>
-        </div>
-
-        <div class="section-title">Nuestros Trabajos</div>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="corte1.jpg" alt="Corte 1"></div>
-            <div class="gallery-item"><img src="corte2.jpg" alt="Corte 2"></div>
-            <div class="gallery-item"><img src="corte3.jpg" alt="Corte 3"></div>
-            <div class="gallery-item"><img src="corte4.jpg" alt="Corte 4"></div>
-            <div class="gallery-item"><img src="corte5.jpg" alt="Corte 5"></div>
-        </div>
-
-        <div class="section-title">Opiniones de Clientes</div>
-        <div class="reviews-container">
-            <div class="review-card">
-                <div class="review-header"><span class="review-user">Cristian O.</span><span class="review-stars">⭐⭐⭐⭐⭐</span></div>
-                <p class="review-text">"Excelente atención, el barbero muy profesional y detallista con los degradados. El estudio es súper cómodo y agradable."</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header"><span class="review-user">Sebastián M.</span><span class="review-stars">⭐⭐⭐⭐⭐</span></div>
-                <p class="review-text">"Puntualidad total con las horas agendadas y muy buena disposición. El servicio de toallas calientes y mascarilla es de otro nivel."</p>
-            </div>
-            <div class="review-card">
-                <div class="review-header"><span class="review-user">Matías V.</span><span class="review-stars">⭐⭐⭐⭐⭐</span></div>
-                <p class="review-text">"100% recomendado en Los Ángeles. Se nota la dedicación en cada corte y el sistema para agendar online funciona impecable."</p>
-            </div>
-        </div>
-
-        <div class="section-title">Horarios de Atención</div>
-        <div class="horarios-card">
-            <div class="horario-row">
-                <span><i class="fa-solid fa-calendar-days"></i> Lunes a Domingo</span>
-                <span style="color: #d4af37; font-weight: bold;">Solo por Agenda</span>
-            </div>
-        </div>
-
-        <div class="section-title">Preguntas Frecuentes</div>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">¿Con cuánto tiempo puedo cancelar o reagendar? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer">Puedes reagendar o cancelar tu hora con un mínimo de 2 horas de anticipación a través del mismo correo de confirmación.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">¿Cuál es el tiempo de tolerancia si me atraso? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer">Tenemos una tolerancia máxima de 10 minutos para mantener el respeto por el tiempo de los demás clientes.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">¿Cómo valido mi abono de reserva? <i class="fa-solid fa-chevron-down"></i></div>
-                <div class="faq-answer">Una vez hecha la transferencia de los $3.000, debes enviar el comprobante directamente a nuestro WhatsApp.</div>
-            </div>
-        </div>
-
-        <div class="section-title">Condiciones y Pago</div>
-        <div class="info-grid">
-            <div class="info-pago-card">
-                <div class="pago-item">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <div class="pago-text">
-                        <h4>Garantía de Agenda</h4>
-                        <p>Para asegurar tu bloque, debes transferir un abono de <strong>$3.000</strong>.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-banco-card">
-                <div class="pago-item">
-                    <i class="fa-solid fa-building-columns"></i>
-                    <div class="pago-text">
-                        <h4>Datos de Transferencia</h4>
-                        <p><strong>Banco:</strong> BCI MACH</p>
-                        <p><strong>Número Cuenta (Corriente):</strong> 10422258837433</p>
-                        <p><strong>Nombre:</strong> Romina Toro</p>
-                        <p><strong>RUT:</strong> 16.718.486-3</p>
-                        <p><strong>Comprobante:</strong>Se Envia a la Aplicacion WhathsAPP</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-title">Ubicación</div>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.351280800045!2d-72.3392348!3d-37.4760591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669ca79f0a82b9f%3A0x7c88f2f8b078d151!2sProf.%20Rodolfo%20Rebolledo%201117%2C%20Los%20Angeles%2C%20Los%20%C3%81ngeles%2C%20B%C3%ADo%20B%C3%ADo!5e0!3m2!1ses-419!2scl!4v1715600000000!5m2!1ses-419!2scl" allowfullscreen="" loading="lazy"></iframe>
-            <div class="map-overlay">
-                <i class="fa-solid fa-map-location-dot"></i> Pasaje Profesor Rodolfo Rebolledo 1117
-            </div>
-        </div>
-
-        <div class="gps-buttons">
-            <a href="https://maps.google.com/?q=Pasaje+Profesor+Rodolfo+Rebolledo+1117,+Los+Angeles,+Chile" target="_blank" class="gps-btn btn-gmaps">
-                <i class="fa-solid fa-location-arrow"></i> Abrir en Maps
-            </a>
-            <a href="https://waze.com/ul?q=Pasaje+Profesor+Rodolfo+Rebolledo+1117,+Los+Angeles,+Chile" target="_blank" class="gps-btn btn-waze">
-                <i class="fa-brands fa-waze"></i> Abrir en Waze
-            </a>
-        </div>
-
-        <button onclick="enviarMensajeDudas()" class="btn-agenda">
-            💬 Dudas o Consultas vía WhatsApp
-        </button>
-
-        <footer>
-            Hugo Barber Estudio <br>
-            Pasaje Profesor Rodolfo Rebolledo 1117<br>
-            Los Ángeles, Biobío, Chile
-        </footer>
-    </div>
-
-    <script>
-        function toggleFaq(elemento) {
-            const item = elemento.parentElement;
-            item.classList.toggle('active');
-        }
-
-        function abrirCalendly(elemento) {
-            const yaSeleccionado = document.querySelector('.service-item.selected');
-            if (yaSeleccionado) {
-                yaSeleccionado.classList.remove('selected');
-            }
-            elemento.classList.add('selected');
-            
-            setTimeout(function() {
-                window.open("https://calendly.com/hugobarberstudio", "_blank");
-            }, 300);
-        }
-
-        function enviarMensajeDudas() {
-            let mensaje = "¡Hola! Estaba viendo la página de la barbería y tengo una duda/consulta.";
-            let mensajeCodificado = encodeURIComponent(mensaje);
-            window.open("https://wa.me/56946348388?text=" + mensajeCodificado, "_blank");
-        }
-    </script>
-
-</body>
-</html>
